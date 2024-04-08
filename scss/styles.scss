@@ -1,0 +1,252 @@
+@use 'variables';
+@use '_initial';
+@use 'mixins';
+@use 'card';
+@use 'footer';
+
+
+
+
+.main-container{
+    width: 375px;
+    margin: auto;
+    @include mixins.desktop-view;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 24px 0;margin-bottom: 100px;
+    &__logo{
+        width: 80px;
+        height: 25px;
+        @include mixins.desktop-view(170px, true);
+    }
+    &__nav-container{
+        display: flex;
+        width: 167px;
+        font-size: 0.8em;
+        justify-content: space-between;
+        
+        @include mixins.desktop-view(274px, unset, 1em);
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            &:hover{
+                color: variables.$Bright-Blue;
+            }
+        }
+    }
+}
+
+.header{
+    padding: 0 24px 182px;
+    background:{
+    image: url(../images/bg-curve-mobile.svg);
+    repeat: no-repeat;
+    position-y: bottom;
+    }
+
+    @include mixins.sections-desktop-view(38px, true);
+    
+    &__ilustration{
+        width: 100%;
+        margin-bottom: 40px;
+        @include mixins.ilustration-desktop-view;
+    }
+    .header-content{
+        &__title{
+            font-size: 1.5em;
+            font-family: variables.$Heading-font;
+            text-align: center;
+            line-height: 35px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        &__description{
+            text-align: center;
+            font-size: 0.95em;
+            margin-bottom: 30px;
+        }
+        &__form{
+            display: flex;
+            flex-direction: column;
+            height: 100px;
+            justify-content: space-between;
+        }
+        &__form input{
+            height: 40px;
+            border-radius: 4px;
+            border: 1px solid variables.$Light-Gray;
+        }
+        &__form input[type= "text"]{
+            padding-left: 15px;
+        }
+        &__form input[type= "text"]::placeholder{
+            color: variables.$Light-Gray;
+        }
+        &__form input[type= "submit"]{
+            @include mixins.button;
+        }
+    }
+}
+
+@media(min-width: 1440px){
+    .header{
+        background-image: url(../images/bg-curve-desktop.svg);
+        height: 720px;
+        .header-content{
+            width: 590px;
+            &__title{
+                text-align: left;
+                font-size: 2.5em;
+                line-height: 60px;
+        }
+            &__description{
+            text-align: left;
+            font-size: 1.15em;
+            }
+            &__form{
+                flex-direction: row;
+                gap: 15px;
+                width: 540px;
+                height: 50px;
+            }
+            &__form input{
+                flex-grow: 1;
+            }
+        }
+        
+        }
+}
+
+.details{
+    background-color: variables.$Light-Grayish-Blue;
+    height: 900px;
+    padding: 0 24px;
+    @include mixins.sections-desktop-view(65px, true);
+    &__ilustration{
+        width: 100%;
+        margin-bottom: 80px;
+        @include mixins.ilustration-desktop-view;
+    }
+    .details-content{
+        &__title{
+            font: 1em;
+            font-family: variables.$Heading-font;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        &__paragraph{
+            margin-bottom: 25px;
+            line-height: 20px;
+            font-size: 0.86em;
+        }
+        &__link{
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+            color: variables.$Moderate-Cyan;
+        }
+    }
+}
+
+@media(min-width: 1440px){
+    .details{
+        height: 677px;
+        &__ilustration{
+            width: 550px;
+        }
+        .details-content{
+            height: 498px;
+            &__title{
+                text-align: left;
+                font-size: 2.5em;
+            }
+            &__paragraph{
+                width: 520px;
+                font-size: 1em;
+                line-height: 25px;
+            }
+            &__link{
+                text-align: left;
+            }
+        }
+    }
+}
+
+
+.early-access{
+    background-color: variables.$Desaturated-Blue;
+    color: variables.$Light-Gray;
+    min-height: 300px;
+    padding: 58px 62px 69px 38px;
+    @include mixins.sections-desktop-view(244px);
+    &__title{
+        text-align: center;
+        margin-bottom: 28px;
+    }
+    &__description{
+        text-align: center;
+        font-size: 0.9em;
+        margin-bottom: 28px;
+    }
+    &__form{
+        display: flex;
+            flex-direction: column;
+            height: 100px;
+            justify-content: space-between;
+        }
+        &__form input{
+            height: 40px;
+            border-radius: 4px;
+            border: 1px solid variables.$Light-Gray;
+        }
+        &__form input[type= "text"]{
+            padding-left: 15px;
+        }
+        &__form input[type= "text"]::placeholder{
+            color: variables.$Light-Gray;
+        }
+        &__form input[type= "submit"]{
+            @include mixins.button;
+        }
+    }
+
+    @media(min-width:1440px){
+        .early-access{
+            &__title{
+                text-align: left;
+            }
+            &__description{
+                text-align: left;
+            }
+            &__form{
+                width: 484px;
+                input[type="submit"]{
+                    width: 50%;
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+.attribution { 
+    margin: 40px 0;
+    font-size: 18px; 
+    text-align: center; 
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+    }
